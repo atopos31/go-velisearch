@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package types;
+
+import "doc.proto";
+
+message TermQuery {
+  Keyword Keyword = 1; // Keyword类型引用自doc.proto
+  repeated TermQuery Must = 2;
+  repeated TermQuery Should = 3;
+}
+
+// protoc -I=D:\golearnpro\go-velisearch\types/proto --gogofaster_out=./types --proto_path=./types/proto term_query.proto
