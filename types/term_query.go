@@ -93,6 +93,7 @@ func (tq *TermQuery) Tostring() string {
 		}
 		s := sb.String()
 		s = s[0:len(s)-1] + ")"
+		
 		return s
 	}
 
