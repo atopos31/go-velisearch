@@ -57,7 +57,7 @@ func (tq *TermQuery) Or(queries ...*TermQuery) *TermQuery {
 
 func (tq *TermQuery) Tostring() string {
 	switch {
-		
+
 	case tq.Keyword != nil:
 		return tq.Keyword.ToString()
 
@@ -96,7 +96,7 @@ func (tq *TermQuery) Tostring() string {
 		}
 		s := sb.String()
 		s = s[0:len(s)-1] + ")"
-		
+
 		return s
 	}
 

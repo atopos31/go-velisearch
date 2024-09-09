@@ -2,6 +2,7 @@ package reverseindex
 
 import "github.com/atopos31/go-velisearch/types"
 
+// 倒排索引
 type IRverseIndexer interface {
 	Add(doc types.Document)
 	// keyword定位到某个value IntId在value的链式结构中确定位置
