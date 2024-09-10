@@ -40,6 +40,7 @@ func GetKVdb(dbType int, path string) (KeyValueDB, error) {
 			return nil, err
 		}
 	} else {
+		// 如果父目录是一个普通文件，则删除它
 		if stat.Mode().IsRegular() {
 			util.Log.Printf("%s is a regular file, will delete it", parentPath)
 			if err := os.Remove(parentPath); err != nil {
@@ -55,7 +56,7 @@ func GetKVdb(dbType int, path string) (KeyValueDB, error) {
 	var db KeyValueDB
 	switch dbType {
 	case BADGER:
-		// db = new(Badger).WithDataPath(path)
+		db = new(Badger).WithDataPath(path)
 	default:
 		// 默认使用 Bolt 数据库，并设置相应的桶
 		db = new(Bbolt).WithDataPath(path).WithBucket("vrlisearch")
