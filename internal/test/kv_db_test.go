@@ -86,7 +86,7 @@ func testBatchGet(t *testing.T) {
 	if err != nil {
 		t.Errorf("get error")
 	}
-	for i, _ := range keys {
+	for i := range keys {
 		if string(res[i]) != string(values[i]) {
 			t.Errorf("get error")
 		}
