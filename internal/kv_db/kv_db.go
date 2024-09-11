@@ -58,7 +58,6 @@ func GetKVdb(dbType int, path string) (KeyValueDB, error) {
 	case BADGER:
 		db = new(Badger).WithDataPath(path)
 	default:
-		// 默认使用 Bolt 数据库，并设置相应的桶
 		db = new(Bbolt).WithDataPath(path).WithBucket("vrlisearch")
 	}
 
