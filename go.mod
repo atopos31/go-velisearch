@@ -41,5 +41,6 @@ require (
 	go.etcd.io/bbolt v1.3.10 // indirect
 	go.etcd.io/etcd/client/v3 v3.5.16
 	golang.org/x/sys v0.24.0 // indirect
+	golang.org/x/time v0.6.0
 	google.golang.org/protobuf v1.34.2 // indirect
 )

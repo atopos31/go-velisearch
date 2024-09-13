@@ -2,6 +2,8 @@ package servicehub
 
 import etcdv3 "go.etcd.io/etcd/client/v3"
 
+const ServiceRootPath = "/velisearch/services"
+
 type ServiceHub interface {
 	RegisterService(service string, endpoint string, leaseID etcdv3.LeaseID) (etcdv3.LeaseID, error) // 注册服务
 	UnregisterService(service string, endpoint string) error                                         // 注销服务

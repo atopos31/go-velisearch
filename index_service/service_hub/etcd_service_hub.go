@@ -13,8 +13,6 @@ import (
 	etcdv3 "go.etcd.io/etcd/client/v3"
 )
 
-const ServiceRootPath = "/velisearch/services"
-
 var (
 	etcdServiceHub *EtcdServiceHub // 单例 不对外暴露
 	hubOnce        sync.Once
