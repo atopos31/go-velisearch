@@ -103,5 +103,3 @@ func testDelete(t *testing.T) {
 		t.Errorf("key found")
 	}
 }
-
-

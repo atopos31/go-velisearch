@@ -159,7 +159,6 @@ func (indexer *Indexer) Search(query *types.TermQuery, onFlag, offFlag uint64, o
 	return result
 }
 
-
 func (indexer *Indexer) Count() int {
 	n, err := indexer.forwardIndex.IterKey(func(k []byte) error {
 		return nil
