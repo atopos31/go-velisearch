@@ -15,9 +15,12 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 )
 
+// 检查是否实现
+var _ Iindexer = (*Sentinel)(nil)
+
 // 对外提供服务
 type Sentinel struct {
-	hub      servicehub.ServiceHub // 服务发现中心
+	hub      servicehub.ServiceHub // 发现服务
 	connPool sync.Map              // 缓存与Worker的连接
 }
 
@@ -80,7 +83,7 @@ func (s *Sentinel) AddDoc(doc types.Document) (int ,error) {
 }
 
 // 删除时 需要在所有的节点上删除
-func (s *Sentinel) Delete(docId string) int {
+func (s *Sentinel) DeleteDoc(docId string) int {
 	endpoints := s.hub.GetServiceEndpoints(IndexService)
 	if len(endpoints) == 0 {
 		return 0

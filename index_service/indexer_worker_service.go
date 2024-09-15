@@ -15,7 +15,7 @@ const IndexService = "index_service"
 
 type IndexServiceWorker struct {
 	indexer  *Indexer                   // 正排索引和倒排索引的结合
-	hub      *servicehub.EtcdServiceHub // 服务发现 注册 注销
+	hub      *servicehub.EtcdServiceHub // 注册服务
 	selfAddr string                     // 本地地址
 }
 
