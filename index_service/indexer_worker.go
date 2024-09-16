@@ -102,6 +102,7 @@ func (indexer *Indexer) DeleteDoc(docId string) int {
 	return 1
 }
 
+// 从正排索引中 加载倒排索引到内存
 func (indexer *Indexer) LoadFormIndexFile() int {
 	reader := bytes.NewReader([]byte{})
 
