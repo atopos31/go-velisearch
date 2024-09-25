@@ -25,9 +25,9 @@ func (w *IndexServiceWorker) Init(DocNumEstimate int, dbtype int, DataDir string
 	return w.indexer.Init(DocNumEstimate, dbtype, DataDir)
 }
 
-func (w *IndexServiceWorker) RegisterService(etcdServers []string,servicePort int) error {
-	if len(etcdServers) >0 {
-		if servicePort <=1024 || servicePort > 65535 {
+func (w *IndexServiceWorker) RegisterService(etcdServers []string, servicePort int) error {
+	if len(etcdServers) > 0 {
+		if servicePort <= 1024 || servicePort > 65535 {
 			return fmt.Errorf("service port must be between 1024 and 65535")
 		}
 
@@ -45,13 +45,12 @@ func (w *IndexServiceWorker) RegisterService(etcdServers []string,servicePort in
 
 		hub := servicehub.GetServiceHub(etcdServers, heartbeatFrequency)
 
-		leaseID , err := hub.RegisterService(IndexService, w.selfAddr, 0)
+		leaseID, err := hub.RegisterService(IndexService, w.selfAddr, 0)
 		if err != nil {
 			return fmt.Errorf("注册服务失败: %v", err)
 		}
 
 		w.hub = hub
-
 
 		go func() {
 			for {
